@@ -1,10 +1,10 @@
 import * as actions from '../actions';
 
-export default function logins(action) {
-  switch (actions.type) {
+export default function logins() {
+  switch (actions) {
     case actions.GOOGLE_LOGIN_REQ:
-      return []
+      return [];
     default:
-      return state;
+      return '';
   }
 }

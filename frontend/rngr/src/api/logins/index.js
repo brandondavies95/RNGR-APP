@@ -3,7 +3,7 @@ import receiveStatus from '../receiveStatus';
 
 export default class loginApi {
   static createItemPromise(login) {
-    return fetch:('/login', {
+    return fetch('/login', {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
@@ -11,8 +11,8 @@ export default class loginApi {
       },
       body: JSON.stringify(login),
     })
-      .then(res => recieveStatus(res))
+      .then(res => receiveStatus(res))
       .then(res => res.json())
-      .catch(err => recieveStatus(err));
+      .catch(err => receiveStatus(err))
   }
 }

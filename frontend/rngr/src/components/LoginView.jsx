@@ -5,7 +5,7 @@ class LoginView extends React.Component {
 
   render() {
     return (
-      <a href="/auth/google">Click Here to login with google</a>
+      <a href="http://localhost:3001/auth/google">Click Here to login with google</a>
     );
   }
 }

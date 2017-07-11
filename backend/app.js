@@ -19,7 +19,7 @@ passportSetup(passport)
 
 // connect to your local DB
 // mongod
-// mongoose.connect('mongodb://localhost/Blunderlist')
+// mongoose.connect('mongodb://localhost/RNGR')
 // Connect to Kaden's DB
 // mongoose.connect('mongodb://144.38.175.196/YourName')
 // connect to DJ's DB

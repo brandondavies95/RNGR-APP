@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import GoogleLogin from './GoogleLogin';
+import Facebook from './FacebookLogin';
+import LoginForm from './Login-Form';
 
-class LoginView extends React.Component {
-  state={}
+
+class LoginView extends Component {
+  state = {}
+  submit = (values) => {
+    console.log(values);
+  };
 
   render() {
     return (
-      <a href="http://localhost:3001/auth/google">Click Here to login with google</a>
+      <div className="row">
+        <div className="col-md-4 col-md-offset-4">
+          <LoginForm onSubmit={this.submit} />
+          <GoogleLogin />
+          <Facebook />
+        </div>
+      </div>
     );
   }
 }

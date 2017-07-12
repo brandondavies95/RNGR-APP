@@ -13,10 +13,10 @@ const userSchema = new Schema ({
     validate: [
       function (email, callback) {
         User.findOne({ email: email}, function (err, user) {
-          if (err) { console.log(err)}
-          if(!user) {
+          if (err) { console.log(err) }
+          if (user) {
             callback(false)
-          }else {
+          } else {
             callback(true)
           }
         })

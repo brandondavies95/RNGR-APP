@@ -43,11 +43,15 @@ module.exports = function (passport) {
         return done (null, user)
       } else {
         // ToDo: Finish
-        const newUser = new User()
-          newUser.google.id = profile.id
-          newUser.google.token = token
-          newUser.google.name = profile.displayName
-          newuser.google.email = profile.emails[0].value
+        const newUser = new User({
+          'email': profile.emails[0].value,
+          'password': token,
+          'google.id': profile.id,
+          'google.token': token,
+          'google.name': profile.displayName,
+          'google.email': profile.emails[0].value
+
+        })
 
 
         newUser.save(function (err) {

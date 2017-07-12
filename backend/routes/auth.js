@@ -10,7 +10,7 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get('/profile', isLoggedIn, function (req, res) {
-  res.send('Logged in!')
+  res.redirect('http://localhost:3000/profile')
 })
 
 router.get('/logout', function (req, res) {

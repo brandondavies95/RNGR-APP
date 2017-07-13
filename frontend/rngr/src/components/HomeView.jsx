@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import MemeList from './MemeList';
+import MemeStore from './MemeStore';
 
 const propTypes = {
   items: PropTypes.array,
@@ -20,7 +20,7 @@ class HomeView extends Component {
     return (
       <div>
         RNGR
-        <MemeList />
+        <MemeStore />
       </div>
     );
   }

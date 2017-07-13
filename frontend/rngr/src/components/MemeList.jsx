@@ -8,6 +8,10 @@ import bridgeMeme from '../assets/audio/jumpOffBridgeMeme.wav';
 import sadViolin from '../assets/audio/sadViolin.wav';
 import damnDaniel from '../assets/audio/damnDaniel.wav';
 
+import play from '../assets/images/play-button.png';
+import pause from '../assets/images/pause.png';
+// import MemeStore from './MemeStore';
+
 const propTypes = {
   onClick: PropTypes.func.isRequired,
 };
@@ -16,37 +20,73 @@ class MemeList extends React.Component {
   state = {
     status: Sound.status.STOPPED,
     url: '',
+    icon: play,
+  }
+
+  stopAudio = () => {
+    this.setState({ status: Sound.status.STOPPED, url: '', isPlaying: true, icon: play });
+  };
+
+  pauseAudio = () => {
+    this.setState({ status: Sound.status.STOPPED, icon: play });
+  }
+
+  playAudio = () => {
+    this.setState({ isPlaying: true, icon: pause });
+  }
+
+  playSound = () => {
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
   }
 
   playDeezNuts = () => {
     this.setState({ url: deezNuts });
-    this.setState({ status: Sound.status.PLAYING });
-  }
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
+  };
 
   playCatchMeOutside = () => {
     this.setState({ url: cathMeOutside });
-    this.setState({ status: Sound.status.PLAYING });
-  }
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
+  };
 
   playBridgeMeme = () => {
     this.setState({ url: bridgeMeme });
-    this.setState({ status: Sound.status.PLAYING });
-  }
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
+  };
 
   playSadViolin = () => {
     this.setState({ url: sadViolin });
-    this.setState({ status: Sound.status.PLAYING });
-  }
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
+  };
 
   playDamnDaniel = () => {
     this.setState({ url: damnDaniel });
-    this.setState({ status: Sound.status.PLAYING });
-  }
-
-  stopAudio = () => {
-    this.setState({ status: Sound.status.STOPPED });
-    this.setState({ url: '' });
-  }
+    if (this.state.isPlaying === true) {
+      this.setState({ status: Sound.status.STOPPED, icon: play, isPlaying: false });
+    } else {
+      this.setState({ status: Sound.status.PLAYING });
+    }
+  };
 
   render() {
     return (
@@ -55,14 +95,14 @@ class MemeList extends React.Component {
           url={this.state.url}
           playStatus={this.state.status}
           volume={80}
+          onPlaying={this.playAudio}
           onFinishedPlaying={this.stopAudio}
         />
-        <button onClick={this.playDeezNuts} > Deez Nuts </button>
-        <button onClick={this.playCatchMeOutside} > Catch Me Outside </button>
-        <button onClick={this.playBridgeMeme} > Man Jumps Off Bridge </button>
-        <button onClick={this.playSadViolin} > Sad Violin </button>
-        <button onClick={this.playDamnDaniel} > Damn Daniel </button>
-        <h1>{`${this.state.status}`}</h1>
+        <button onTouchTap={this.playDeezNuts}>deezNuts<img src={this.state.icon} alt="" /></button>
+        <button onTouchTap={this.playCatchMeOutside}>Catch Me Outside<img src={this.state.icon} alt="" /></button>
+        <button onTouchTap={this.playBridgeMeme}>Man Jumps Off Bridge<img src={this.state.icon} alt="" /></button>
+        <button onTouchTap={this.playSadViolin}>Sad Violin<img src={this.state.icon} alt="" /></button>
+        <button onTouchTap={this.playDamnDaniel}>Damn Daniel<img src={this.state.icon} alt="" /></button>
       </div>
     );
   }

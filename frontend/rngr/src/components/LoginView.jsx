@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import GoogleLogin from './GoogleLogin';
-import Facebook from './FacebookLogin';
+import FacebookLogin from './FacebookLogin';
 import LoginForm from './Login-Form';
+
+import { USER_CREATE_REQ } from '../actions';
 
 class LoginView extends Component {
   state = {}
-  submit = (values) => {
-    console.log(values);
-  };
+
+  inputChange = (e) => {
+    const currentItem = e.target.value;
+    this.setState({ currentItem });
+  }
+
+  submit = () => {
+    this.dispatch(USER_CREATE_REQ);
+  }
 
   render() {
     return (
-      <div className="row">
+      <div className="row rngr-form">
         <div className="col-md-4 col-md-offset-4">
           <h1>RNGR</h1>
-          <LoginForm onSubmit={this.submit} />
+          <LoginForm onChange={this.inputChange} onClick={this.submit} />
           <GoogleLogin />
-          <Facebook />
+          <FacebookLogin />
         </div>
       </div>
     );

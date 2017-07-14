@@ -8,8 +8,8 @@ import bridgeMeme from '../assets/audio/jumpOffBridgeMeme.wav';
 import sadViolin from '../assets/audio/sadViolin.wav';
 import damnDaniel from '../assets/audio/damnDaniel.wav';
 
-import play from '../assets/images/play-button.png';
-import pause from '../assets/images/pause.png';
+import play from '../assets/images/play-button.svg';
+import pause from '../assets/images/pause.svg';
 // import MemeStore from './MemeStore';
 
 const propTypes = {
@@ -25,96 +25,154 @@ class MemeList extends React.Component {
     icon3: play,
     icon4: play,
     icon5: play,
-    sound1: false,
-    sound2: false,
-    sound3: false,
-    sound4: false,
-    sound5: false,
+    sound: 'sound0',
+  }
+
+  stopAudio = () => {
+    this.setState({
+      status: Sound.status.STOPPED,
+      sound: 'sound0',
+      icon1: play,
+      icon2: play,
+      icon3: play,
+      icon4: play,
+      icon5: play,
+    });
   }
 
   playButton1 = () => {
-    if (this.state.sound1 === false) {
+    if (this.state.sound !== 'sound1') {
       this.setState({
         url: deezNuts,
         status: Sound.status.PLAYING,
-        sound1: true,
-        sound2: false,
-        sound3: false,
-        sound4: false,
-        sound5: false,
+        sound: 'sound1',
+        icon1: pause,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
       });
     } else {
-      this.setState({ url: '', status: Sound.status.STOPPED, sound1: false });
+      this.setState({
+        url: '',
+        status: Sound.status.STOPPED,
+        sound: 'sound0',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
+      });
     }
   }
 
   playButton2 = () => {
-    if (this.state.sound2 === false) {
+    if (this.state.sound !== 'sound2') {
       this.setState({
         url: cathMeOutside,
         status: Sound.status.PLAYING,
-        sound1: false,
-        sound2: true,
-        sound3: false,
-        sound4: false,
-        sound5: false,
+        sound: 'sound2',
+        icon1: play,
+        icon2: pause,
+        icon3: play,
+        icon4: play,
+        icon5: play,
       });
     } else {
-      this.setState({ url: '', status: Sound.status.STOPPED, sound2: false });
+      this.setState({
+        url: '',
+        status: Sound.status.STOPPED,
+        sound: 'sound0',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
+      });
     }
   }
 
   playButton3 = () => {
-    if (this.state.sound3 === false) {
+    if (this.state.sound !== 'sound3') {
       this.setState({
         url: bridgeMeme,
         status: Sound.status.PLAYING,
-        sound1: false,
-        sound2: false,
-        sound3: true,
-        sound4: false,
-        sound5: false,
+        sound: 'sound3',
+        icon1: play,
+        icon2: play,
+        icon3: pause,
+        icon4: play,
+        icon5: play,
       });
     } else {
-      this.setState({ url: '', status: Sound.status.STOPPED, sound3: false });
+      this.setState({
+        url: '',
+        status: Sound.status.STOPPED,
+        sound: 'sound0',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
+      });
     }
   }
 
   playButton4 = () => {
-    if (this.state.sound4 === false) {
+    if (this.state.sound !== 'sound4') {
       this.setState({
         url: sadViolin,
         status: Sound.status.PLAYING,
-        sound1: false,
-        sound2: false,
-        sound3: false,
-        sound4: true,
-        sound5: false,
+        sound: 'sound4',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: pause,
+        icon5: play,
       });
     } else {
-      this.setState({ url: '', status: Sound.status.STOPPED, sound4: false });
+      this.setState({
+        url: '',
+        status: Sound.status.STOPPED,
+        sound: 'sound0',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
+      });
     }
   }
 
   playButton5 = () => {
-    if (this.state.sound5 === false) {
+    if (this.state.sound !== 'sound5') {
       this.setState({
         url: damnDaniel,
         status: Sound.status.PLAYING,
-        sound1: false,
-        sound2: false,
-        sound3: false,
-        sound4: false,
-        sound5: true,
+        sound: 'sound5',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: pause,
       });
     } else {
-      this.setState({ url: '', status: Sound.status.STOPPED, sound5: false });
+      this.setState({
+        url: '',
+        status: Sound.status.STOPPED,
+        sound: 'sound0',
+        icon1: play,
+        icon2: play,
+        icon3: play,
+        icon4: play,
+        icon5: play,
+      });
     }
   }
 
   render() {
     return (
-      <div>
+      <div className="dashBoard">
         <Sound
           url={this.state.url}
           playStatus={this.state.status}
@@ -122,11 +180,11 @@ class MemeList extends React.Component {
           onPlaying={this.playAudio}
           onFinishedPlaying={this.stopAudio}
         />
-        <button onTouchTap={this.playButton1}>deezNuts<img src={this.state.icon1} alt="" /></button>
-        <button onTouchTap={this.playButton2}>Catch Me Outside<img src={this.state.icon2} alt="" /></button>
-        <button onTouchTap={this.playButton3}>Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
-        <button onTouchTap={this.playButton4}>Sad Violin<img src={this.state.icon4} alt="" /></button>
-        <button onTouchTap={this.playButton5}>Damn Daniel<img src={this.state.icon5} alt="" /></button>
+        <button onTouchTap={this.playButton1} className="rngr-button">deezNuts<img src={this.state.icon1} alt="" /></button>
+        <button onTouchTap={this.playButton2} className="rngr-button">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
+        <button onTouchTap={this.playButton3} className="rngr-button">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
+        <button onTouchTap={this.playButton4} className="rngr-button">Sad Violin<img src={this.state.icon4} alt="" /></button>
+        <button onTouchTap={this.playButton5} className="rngr-button">Damn Daniel<img src={this.state.icon5} alt="" /></button>
       </div>
     );
   }

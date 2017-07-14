@@ -19,7 +19,7 @@ class HomeView extends Component {
   render() {
     return (
       <div>
-        RNGR
+        <h1>RNGR</h1>
         <MemeStore />
       </div>
     );

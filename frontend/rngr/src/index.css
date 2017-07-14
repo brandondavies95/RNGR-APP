@@ -1,9 +1,10 @@
 * {
     text-decoration: none !important;
+    margin:0 !important; padding:0 !important;
 }
 
 #root {
-  margin-top: 100px;
+  margin:0;
 }
 
 label {
@@ -13,4 +14,35 @@ label {
 
 button {
 margin: 50px 0 50px 0;
+}
+
+h1 {
+  font-size:8rem;
+  text-align:center;
+  margin-top:20px;
+}
+
+.dashBoard {
+  width:80%; display:flex; flex-direction: column; align-items: center; justify-content: center; margin-left:10% !important;
+}
+
+.rngr-button {
+  width: 70%;
+  height: 80px;
+  background-color:#ddd;
+  border-radius:60px;
+  border:none;
+  outline: none;
+  margin:2% 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 0 120px !important;
+}
+
+.rngr-button > img {
+  width: 65px; height:65px;
 }

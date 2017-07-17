@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LoginForm = () => (
-  <div>
+  <div className="inputs">
     <input onChange={this.onChange} placeholder="name" />
     <input onChange={this.onChange} placeholder="email" />
     <input onChange={this.onChange} placeholder="password" />

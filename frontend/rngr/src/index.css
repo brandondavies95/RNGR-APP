@@ -27,9 +27,57 @@ h1 {
 
 .rngr-form {
   width:60%;
-  height: 60%;
-  margin:10% 20% !important;
+  height: 60% !important;
+  margin:2% 20% !important;
   background-color:#ddd;
+  padding-top: 2% !important;
+  position: absolute;
+}
+
+.google {
+  position:absolute;
+  bottom: 3%;
+  left:3%;
+}
+
+.facebook {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+}
+
+.facebook a span button{
+  margin:0 !important;
+  padding: 5% 1% !important;
+}
+
+.inputs input {
+  width:80%;
+  height: 80px;
+  margin: 1% 10% !important;
+  border-radius: 80px !important;
+  border:none;
+  outline: none;
+  box-sizing: border-box;
+  padding-left: 25px;
+  font-size: 2rem;
+  color: #9933ff;
+}
+
+.inputs input::placeholder {
+  color: #D5B4F5;
+}
+
+.inputs button {
+  width:80%;
+  height: 80px;
+  margin: 1% 10% !important;
+  border-radius: 80px;
+  border: none;
+  outline: none;
+  background-color: #9933ff;
+  font-size: 3rem;
+  color: #fff;
 }
 
 .dashBoard {
@@ -55,7 +103,6 @@ h1 {
   font-weight: bold;
   box-sizing: border-box;
   padding: 0 120px !important;
-  transition: 200ms ease;
 }
 
 .rngr-button > img {

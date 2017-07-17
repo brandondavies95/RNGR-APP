@@ -82,89 +82,93 @@ class MemeList extends React.Component {
 
   clickHandler = (e) => {
     const active = e.target;
-    if (active.id === 'deezNuts') {
-      const playAudio = () => {
-        this.setState({ url: deezNuts, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'catchMe') {
-      const playAudio = () => {
-        this.setState({ url: cathMeOutside, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'bridge') {
-      const playAudio = () => {
-        this.setState({ url: bridgeMeme, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'sadViolin') {
-      const playAudio = () => {
-        this.setState({ url: sadViolin, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'daniel') {
-      const playAudio = () => {
-        this.setState({ url: damnDaniel, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'hoodRat') {
-      const playAudio = () => {
-        this.setState({ url: hoodRat, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'turtles') {
-      const playAudio = () => {
-        this.setState({ url: iLikeTurtles, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'realLife') {
-      const playAudio = () => {
-        this.setState({ url: isThisRealLife, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'badThings') {
-      const playAudio = () => {
-        this.setState({ url: itsFunToDoBadThings, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'yanked') {
-      const playAudio = () => {
-        this.setState({ url: iYankedTheThing, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'leeroy') {
-      const playAudio = () => {
-        this.setState({ url: leeroyJenkins, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'ohhhhh') {
-      const playAudio = () => {
-        this.setState({ url: ohhhhh, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'sparta') {
-      const playAudio = () => {
-        this.setState({ url: thisIsSparta, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
-    }
-    if (active.id === 'weatherBoy') {
-      const playAudio = () => {
-        this.setState({ url: weatherBoy, status: Sound.status.PLAYING, icon: pause });
-      };
-      this.expandHandler(active, playAudio);
+    if (this.state.status === Sound.status.STOPPED) {
+      if (active.id === 'deezNuts') {
+        const playAudio = () => {
+          this.setState({ url: deezNuts, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'catchMe') {
+        const playAudio = () => {
+          this.setState({ url: cathMeOutside, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'bridge') {
+        const playAudio = () => {
+          this.setState({ url: bridgeMeme, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'sadViolin') {
+        const playAudio = () => {
+          this.setState({ url: sadViolin, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'daniel') {
+        const playAudio = () => {
+          this.setState({ url: damnDaniel, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'hoodRat') {
+        const playAudio = () => {
+          this.setState({ url: hoodRat, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'turtles') {
+        const playAudio = () => {
+          this.setState({ url: iLikeTurtles, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'realLife') {
+        const playAudio = () => {
+          this.setState({ url: isThisRealLife, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'badThings') {
+        const playAudio = () => {
+          this.setState({ url: itsFunToDoBadThings, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'yanked') {
+        const playAudio = () => {
+          this.setState({ url: iYankedTheThing, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'leeroy') {
+        const playAudio = () => {
+          this.setState({ url: leeroyJenkins, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'ohhhhh') {
+        const playAudio = () => {
+          this.setState({ url: ohhhhh, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'sparta') {
+        const playAudio = () => {
+          this.setState({ url: thisIsSparta, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+      if (active.id === 'weatherBoy') {
+        const playAudio = () => {
+          this.setState({ url: weatherBoy, status: Sound.status.PLAYING, icon: pause });
+        };
+        this.expandHandler(active, playAudio);
+      }
+    } else {
+      this.stopAudio();
     }
   }
 

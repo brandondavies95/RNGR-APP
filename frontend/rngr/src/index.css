@@ -1,6 +1,7 @@
 * {
     text-decoration: none !important;
-    margin:0 !important; padding:0 !important;
+    margin:0;
+    padding:0;
 }
 
 #root {
@@ -13,31 +14,40 @@ label {
 }
 
 button {
-margin: 50px 0 50px 0;
+  margin: 50px 0 50px 0;
 }
 
 h1 {
   font-size:8rem;
   text-align:center;
-  margin-top:40px !important;
+  margin-top:10px !important;
+  z-index:5;
+  width:100%;
 }
 
 .rngr-form {
-  width:60%; height: 60%; margin:10% 20% !important; background-color:#ddd;
+  width:60%;
+  height: 60%;
+  margin:10% 20% !important;
+  background-color:#ddd;
 }
 
 .dashBoard {
-  width:80%; display:flex; flex-direction: column; align-items: center; justify-content: center; margin-left:10% !important;
+  width:80%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left:10% !important;
 }
 
 .rngr-button {
-  width: 70%;
+  width: 100%;
   height: 80px;
   background-color:#ddd;
   border-radius:60px;
   border:none;
   outline: none;
-  margin:2% 0 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,8 +55,39 @@ h1 {
   font-weight: bold;
   box-sizing: border-box;
   padding: 0 120px !important;
+  transition: 200ms ease;
 }
 
 .rngr-button > img {
-  width: 65px; height:65px;
+  width: 65px;
+  height:65px;
+}
+
+.rngr-box {
+  width:100%;
+  margin:0;
+  padding:0 20% !important;
+  box-sizing: border-box;
+  position: absolute;
+  top:10%;
+  left:0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.rngr-store {
+  width:20% !important;
+  height:80px !important;
+  padding: 0 !important;
+  text-align:center !important;
+  margin:2% !important;
+  font-size: 2rem !important;
+  justify-content: center !important;
+}
+
+.rngr-store > img {
+  display:none;
 }

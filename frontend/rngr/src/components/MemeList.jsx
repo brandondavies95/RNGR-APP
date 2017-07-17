@@ -180,11 +180,13 @@ class MemeList extends React.Component {
           onPlaying={this.playAudio}
           onFinishedPlaying={this.stopAudio}
         />
-        <button onTouchTap={this.playButton1} className="rngr-button">deezNuts<img src={this.state.icon1} alt="" /></button>
-        <button onTouchTap={this.playButton2} className="rngr-button">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
-        <button onTouchTap={this.playButton3} className="rngr-button">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
-        <button onTouchTap={this.playButton4} className="rngr-button">Sad Violin<img src={this.state.icon4} alt="" /></button>
-        <button onTouchTap={this.playButton5} className="rngr-button">Damn Daniel<img src={this.state.icon5} alt="" /></button>
+        <div className="rngr-box">
+          <button onTouchTap={this.playButton1} className="rngr-button">deezNuts<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button">Sad Violin<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton5} className="rngr-button">Damn Daniel<img src={this.state.icon5} alt="" /></button>
+        </div>
       </div>
     );
   }

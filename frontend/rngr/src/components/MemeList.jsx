@@ -38,9 +38,20 @@ class MemeList extends React.Component {
       icon4: play,
       icon5: play,
     });
+    const button1 = document.querySelector('#deezNuts');
+    const button2 = document.querySelector('#catchMe');
+    const button3 = document.querySelector('#bridge');
+    const button4 = document.querySelector('#sadViolin');
+    const button5 = document.querySelector('#daniel');
+    button1.style.backgroundColor = '#ddd';
+    button2.style.backgroundColor = '#ddd';
+    button3.style.backgroundColor = '#ddd';
+    button4.style.backgroundColor = '#ddd';
+    button5.style.backgroundColor = '#ddd';
   }
 
   playButton1 = () => {
+    const button = document.querySelector('#deezNuts');
     if (this.state.sound !== 'sound1') {
       this.setState({
         url: deezNuts,
@@ -52,6 +63,7 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#86253C';
     } else {
       this.setState({
         url: '',
@@ -63,10 +75,12 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton2 = () => {
+    const button = document.querySelector('#catchMe');
     if (this.state.sound !== 'sound2') {
       this.setState({
         url: cathMeOutside,
@@ -78,6 +92,7 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#86253C';
     } else {
       this.setState({
         url: '',
@@ -89,10 +104,12 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton3 = () => {
+    const button = document.querySelector('#bridge');
     if (this.state.sound !== 'sound3') {
       this.setState({
         url: bridgeMeme,
@@ -104,6 +121,7 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#86253C';
     } else {
       this.setState({
         url: '',
@@ -115,10 +133,12 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton4 = () => {
+    const button = document.querySelector('#sadViolin');
     if (this.state.sound !== 'sound4') {
       this.setState({
         url: sadViolin,
@@ -130,6 +150,7 @@ class MemeList extends React.Component {
         icon4: pause,
         icon5: play,
       });
+      button.style.backgroundColor = '#86253C';
     } else {
       this.setState({
         url: '',
@@ -141,10 +162,12 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton5 = () => {
+    const button = document.querySelector('#daniel');
     if (this.state.sound !== 'sound5') {
       this.setState({
         url: damnDaniel,
@@ -156,6 +179,7 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: pause,
       });
+      button.style.backgroundColor = '#86253C';
     } else {
       this.setState({
         url: '',
@@ -167,6 +191,7 @@ class MemeList extends React.Component {
         icon4: play,
         icon5: play,
       });
+      button.style.backgroundColor = '#ddd';
     }
   }
 
@@ -180,11 +205,13 @@ class MemeList extends React.Component {
           onPlaying={this.playAudio}
           onFinishedPlaying={this.stopAudio}
         />
-        <button onTouchTap={this.playButton1} className="rngr-button">deezNuts<img src={this.state.icon1} alt="" /></button>
-        <button onTouchTap={this.playButton2} className="rngr-button">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
-        <button onTouchTap={this.playButton3} className="rngr-button">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
-        <button onTouchTap={this.playButton4} className="rngr-button">Sad Violin<img src={this.state.icon4} alt="" /></button>
-        <button onTouchTap={this.playButton5} className="rngr-button">Damn Daniel<img src={this.state.icon5} alt="" /></button>
+        <div className="rngr-box">
+          <button onTouchTap={this.playButton1} className="rngr-button" id="deezNuts">deezNuts<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button" id="catchMe">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button" id="bridge">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button" id="sadViolin">Sad Violin<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton5} className="rngr-button" id="daniel">Damn Daniel<img src={this.state.icon5} alt="" /></button>
+        </div>
       </div>
     );
   }

@@ -19,12 +19,14 @@ class LoginView extends Component {
 
   render() {
     return (
-      <div className="row rngr-form">
-        <div className="col-md-4 col-md-offset-4">
-          <h1>RNGR</h1>
-          <LoginForm onChange={this.inputChange} onClick={this.submit} />
-          <GoogleLogin />
-          <FacebookLogin />
+      <div>
+        <h1>RNGR</h1>
+        <div className="rngr-form">
+          <div className="">
+            <LoginForm onChange={this.inputChange} onClick={this.submit} />
+            <div className="google"><GoogleLogin /></div>
+            <div className="facebook"><FacebookLogin /></div>
+          </div>
         </div>
       </div>
     );

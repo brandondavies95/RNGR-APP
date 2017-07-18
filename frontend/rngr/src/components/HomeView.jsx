@@ -5,10 +5,12 @@ import MemeList from './MemeList';
 
 const propTypes = {
   items: PropTypes.array,
+  memes: PropTypes.array,
 };
 
 const defaultProps = {
   items: [],
+  memes: [],
 };
 
 class HomeView extends Component {
@@ -21,6 +23,7 @@ class HomeView extends Component {
       <div>
         <h1>RNGR</h1>
         <MemeList />
+        {this.props.memes}
       </div>
     );
   }
@@ -32,6 +35,7 @@ HomeView.defaultProps = defaultProps;
 function mapStateToProps(state) {
   return {
     items: state.items,
+    memes: state.memes,
   };
 }
 

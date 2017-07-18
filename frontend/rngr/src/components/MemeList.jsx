@@ -30,6 +30,7 @@ class MemeList extends React.Component {
 
   stopAudio = () => {
     this.setState({
+      url: '',
       status: Sound.status.STOPPED,
       sound: 'sound0',
       icon1: play,
@@ -51,6 +52,7 @@ class MemeList extends React.Component {
   }
 
   playButton1 = () => {
+    this.stopAudio();
     const button = document.querySelector('#deezNuts');
     if (this.state.sound !== 'sound1') {
       this.setState({
@@ -64,22 +66,11 @@ class MemeList extends React.Component {
         icon5: play,
       });
       button.style.backgroundColor = '#86253C';
-    } else {
-      this.setState({
-        url: '',
-        status: Sound.status.STOPPED,
-        sound: 'sound0',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton2 = () => {
+    this.stopAudio();
     const button = document.querySelector('#catchMe');
     if (this.state.sound !== 'sound2') {
       this.setState({
@@ -93,22 +84,11 @@ class MemeList extends React.Component {
         icon5: play,
       });
       button.style.backgroundColor = '#86253C';
-    } else {
-      this.setState({
-        url: '',
-        status: Sound.status.STOPPED,
-        sound: 'sound0',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton3 = () => {
+    this.stopAudio();
     const button = document.querySelector('#bridge');
     if (this.state.sound !== 'sound3') {
       this.setState({
@@ -122,22 +102,11 @@ class MemeList extends React.Component {
         icon5: play,
       });
       button.style.backgroundColor = '#86253C';
-    } else {
-      this.setState({
-        url: '',
-        status: Sound.status.STOPPED,
-        sound: 'sound0',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton4 = () => {
+    this.stopAudio();
     const button = document.querySelector('#sadViolin');
     if (this.state.sound !== 'sound4') {
       this.setState({
@@ -151,22 +120,11 @@ class MemeList extends React.Component {
         icon5: play,
       });
       button.style.backgroundColor = '#86253C';
-    } else {
-      this.setState({
-        url: '',
-        status: Sound.status.STOPPED,
-        sound: 'sound0',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#ddd';
     }
   }
 
   playButton5 = () => {
+    this.stopAudio();
     const button = document.querySelector('#daniel');
     if (this.state.sound !== 'sound5') {
       this.setState({
@@ -180,18 +138,6 @@ class MemeList extends React.Component {
         icon5: pause,
       });
       button.style.backgroundColor = '#86253C';
-    } else {
-      this.setState({
-        url: '',
-        status: Sound.status.STOPPED,
-        sound: 'sound0',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#ddd';
     }
   }
 

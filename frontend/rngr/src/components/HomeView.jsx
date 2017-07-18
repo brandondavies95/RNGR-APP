@@ -20,7 +20,7 @@ class HomeView extends Component {
     return (
       <div>
         <h1>RNGR</h1>
-        <MemeList />
+        <a href="http://localhost:3001/login">Login</a>
       </div>
     );
   }

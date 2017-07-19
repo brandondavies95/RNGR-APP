@@ -27,14 +27,40 @@ class MemeList extends React.Component {
     icon4: play,
     icon5: play,
     sound: 'sound0',
+    user: [
+      {
+        title: this.props.memes[12].title,
+        url: this.props.memes[12].url,
+        id: this.props.memes[12].id,
+      },
+      {
+        title: this.props.memes[10].title,
+        url: this.props.memes[10].url,
+        id: this.props.memes[10].id,
+      },
+      {
+        title: this.props.memes[2].title,
+        url: this.props.memes[2].url,
+        id: this.props.memes[2].id,
+      },
+      {
+        title: this.props.memes[5].title,
+        url: this.props.memes[5].url,
+        id: this.props.memes[5].id,
+      },
+      {
+        title: this.props.memes[9].title,
+        url: this.props.memes[9].url,
+        id: this.props.memes[9].id,
+      },
+    ],
   }
 
-  sound0 = require('../assets/audio/' + this.props.memes[0].url);
-  sound1 = require('../assets/audio/' + this.props.memes[1].url);
-  sound2 = require('../assets/audio/' + this.props.memes[2].url);
-  sound3 = require('../assets/audio/' + this.props.memes[3].url);
-  sound4 = require('../assets/audio/' + this.props.memes[4].url);
-
+  sound0 = require('../assets/audio/' + this.state.user[0].url);
+  sound1 = require('../assets/audio/' + this.state.user[1].url);
+  sound2 = require('../assets/audio/' + this.state.user[2].url);
+  sound3 = require('../assets/audio/' + this.state.user[3].url);
+  sound4 = require('../assets/audio/' + this.state.user[4].url);
 
   stopAudio = () => {
     this.setState({
@@ -160,11 +186,11 @@ class MemeList extends React.Component {
           onFinishedPlaying={this.stopAudio}
         />
         <div className="rngr-box">
-          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.props.memes[0].title}<img src={this.state.icon1} alt="" /></button>
-          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.props.memes[1].title}<img src={this.state.icon2} alt="" /></button>
-          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.props.memes[2].title}<img src={this.state.icon3} alt="" /></button>
-          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.props.memes[3].title}<img src={this.state.icon4} alt="" /></button>
-          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.props.memes[4].title}<img src={this.state.icon5} alt="" /></button>
+          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.state.user[1].title}<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.state.user[2].title}<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.state.user[3].title}<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.state.user[4].title}<img src={this.state.icon5} alt="" /></button>
         </div>
       </div>
     );

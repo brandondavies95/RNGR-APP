@@ -11,7 +11,7 @@ export default function () {
       id: 1,
     },
     {
-      title: 'Catch Me Oustside',
+      title: 'Catch Me Outside',
       url: 'howBoutDat.wav',
       id: 2,
     },

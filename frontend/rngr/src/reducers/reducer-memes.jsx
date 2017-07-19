@@ -2,27 +2,27 @@ export default function () {
   return [
     {
       title: 'Damn Daniel',
-      url: '../assets/audio/damnDaniel.wav',
+      url: 'damnDaniel.wav',
       id: 0,
     },
     {
       title: 'Deez Nuts',
-      url: '../assets/audio/deezNutz.wav',
+      url: 'deezNuts.wav',
       id: 1,
     },
     {
       title: 'Catch Me Oustside',
-      url: '../assets/audio/howBoutDat.wav',
+      url: 'howBoutDat.wav',
       id: 2,
     },
     {
       title: 'Man Jumps Off Bridge',
-      url: '../assets/audio/jumpOffBridgeMeme.wav',
+      url: 'jumpOffBridgeMeme.wav',
       id: 3,
     },
     {
       title: 'Sad Violin',
-      url: '../assets/audio/sadViolin.wav',
+      url: 'sadViolin.wav',
       id: 4,
     },
   ];

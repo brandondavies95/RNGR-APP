@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Sound from 'react-sound';
 
-import deezNuts from '../assets/audio/deezNuts.wav';
-import cathMeOutside from '../assets/audio/howBoutDat.wav';
-import bridgeMeme from '../assets/audio/jumpOffBridgeMeme.wav';
-import sadViolin from '../assets/audio/sadViolin.wav';
-import damnDaniel from '../assets/audio/damnDaniel.wav';
+// const sound0 = require({ this.props.memes[0].url })
+// import sound1 from {this.props.memes[1].url};
+// import sound2 from {this.props.memes[2].url};
+// import sound3 from {this.props.memes[3].url};
+// import sound4 from {this.props.memes[4].url};
 
 import play from '../assets/images/play-button.svg';
 import pause from '../assets/images/pause.svg';
@@ -29,22 +29,29 @@ class MemeList extends React.Component {
     sound: 'sound0',
   }
 
+  sound0 = require('../assets/audio/' + this.props.memes[0].url);
+  sound1 = require('../assets/audio/' + this.props.memes[1].url);
+  sound2 = require('../assets/audio/' + this.props.memes[2].url);
+  sound3 = require('../assets/audio/' + this.props.memes[3].url);
+  sound4 = require('../assets/audio/' + this.props.memes[4].url);
+
+
   stopAudio = () => {
     this.setState({
       url: '',
       status: Sound.status.STOPPED,
-      sound: 'sound0',
+      sound: 'sound',
       icon1: play,
       icon2: play,
       icon3: play,
       icon4: play,
       icon5: play,
     });
-    const button1 = document.querySelector('#deezNuts');
-    const button2 = document.querySelector('#catchMe');
-    const button3 = document.querySelector('#bridge');
-    const button4 = document.querySelector('#sadViolin');
-    const button5 = document.querySelector('#daniel');
+    const button1 = document.querySelector('#s0');
+    const button2 = document.querySelector('#s1');
+    const button3 = document.querySelector('#s2');
+    const button4 = document.querySelector('#s3');
+    const button5 = document.querySelector('#s4');
     button1.style.backgroundColor = '#ddd';
     button2.style.backgroundColor = '#ddd';
     button3.style.backgroundColor = '#ddd';
@@ -52,14 +59,14 @@ class MemeList extends React.Component {
     button5.style.backgroundColor = '#ddd';
   }
 
-  playButton1 = () => {
+  playButton0 = () => {
     this.stopAudio();
-    const button = document.querySelector('#deezNuts');
-    if (this.state.sound !== 'sound1') {
+    const button = document.querySelector('#s0');
+    if (this.state.sound !== 'sound0') {
       this.setState({
-        url: deezNuts,
+        url: this.sound0,
         status: Sound.status.PLAYING,
-        sound: 'sound1',
+        sound: 'sound0',
         icon1: pause,
         icon2: play,
         icon3: play,
@@ -70,14 +77,14 @@ class MemeList extends React.Component {
     }
   }
 
-  playButton2 = () => {
+  playButton1 = () => {
     this.stopAudio();
-    const button = document.querySelector('#catchMe');
-    if (this.state.sound !== 'sound2') {
+    const button = document.querySelector('#s1');
+    if (this.state.sound !== 'sound1') {
       this.setState({
-        url: cathMeOutside,
+        url: this.sound1,
         status: Sound.status.PLAYING,
-        sound: 'sound2',
+        sound: 'sound1',
         icon1: play,
         icon2: pause,
         icon3: play,
@@ -88,14 +95,14 @@ class MemeList extends React.Component {
     }
   }
 
-  playButton3 = () => {
+  playButton2 = () => {
     this.stopAudio();
-    const button = document.querySelector('#bridge');
-    if (this.state.sound !== 'sound3') {
+    const button = document.querySelector('#s2');
+    if (this.state.sound !== 'sound2') {
       this.setState({
-        url: bridgeMeme,
+        url: this.sound2,
         status: Sound.status.PLAYING,
-        sound: 'sound3',
+        sound: 'sound2',
         icon1: play,
         icon2: play,
         icon3: pause,
@@ -106,14 +113,14 @@ class MemeList extends React.Component {
     }
   }
 
-  playButton4 = () => {
+  playButton3 = () => {
     this.stopAudio();
-    const button = document.querySelector('#sadViolin');
-    if (this.state.sound !== 'sound4') {
+    const button = document.querySelector('#s3');
+    if (this.state.sound !== 'sound3') {
       this.setState({
-        url: sadViolin,
+        url: this.sound3,
         status: Sound.status.PLAYING,
-        sound: 'sound4',
+        sound: 'sound3',
         icon1: play,
         icon2: play,
         icon3: play,
@@ -124,14 +131,14 @@ class MemeList extends React.Component {
     }
   }
 
-  playButton5 = () => {
+  playButton4 = () => {
     this.stopAudio();
-    const button = document.querySelector('#daniel');
-    if (this.state.sound !== 'sound5') {
+    const button = document.querySelector('#s4');
+    if (this.state.sound !== 'sound4') {
       this.setState({
-        url: damnDaniel,
+        url: this.sound4,
         status: Sound.status.PLAYING,
-        sound: 'sound5',
+        sound: 'sound4',
         icon1: play,
         icon2: play,
         icon3: play,
@@ -153,11 +160,11 @@ class MemeList extends React.Component {
           onFinishedPlaying={this.stopAudio}
         />
         <div className="rngr-box">
-          <button onTouchTap={this.playButton1} className="rngr-button" id="deezNuts">deezNuts<img src={this.state.icon1} alt="" /></button>
-          <button onTouchTap={this.playButton2} className="rngr-button" id="catchMe">Catch Me Outside<img src={this.state.icon2} alt="" /></button>
-          <button onTouchTap={this.playButton3} className="rngr-button" id="bridge">Man Jumps Off Bridge<img src={this.state.icon3} alt="" /></button>
-          <button onTouchTap={this.playButton4} className="rngr-button" id="sadViolin">Sad Violin<img src={this.state.icon4} alt="" /></button>
-          <button onTouchTap={this.playButton5} className="rngr-button" id="daniel">Damn Daniel<img src={this.state.icon5} alt="" /></button>
+          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.props.memes[0].title}<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.props.memes[1].title}<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.props.memes[2].title}<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.props.memes[3].title}<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.props.memes[4].title}<img src={this.state.icon5} alt="" /></button>
         </div>
       </div>
     );

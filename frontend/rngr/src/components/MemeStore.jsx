@@ -8,13 +8,13 @@ import bridgeMeme from '../assets/audio/jumpOffBridgeMeme.wav';
 import sadViolin from '../assets/audio/sadViolin.wav';
 import damnDaniel from '../assets/audio/damnDaniel.wav';
 import hoodRat from '../assets/audio/hoodRatStuff.wav';
-import iLikeTurtles from '../assets/audio/iLikeTurtles.wav';
-import isThisRealLife from '../assets/audio/isThisRealLife.wav';
+import iLikeTurtles from '../assets/audio/iliketurtles.wav';
+import isThisRealLife from '../assets/audio/isthisreallife.wav';
 import itsFunToDoBadThings from '../assets/audio/badThings.wav';
 import iYankedTheThing from '../assets/audio/yankedTheThing.wav';
-import leeroyJenkins from '../assets/audio/leeroyJenkins.wav';
+import leeroyJenkins from '../assets/audio/leeroyjenkins.wav';
 import ohhhhh from '../assets/audio/ohhhhh.wav';
-import thisIsSparta from '../assets/audio/thisIsSparta.wav';
+import thisIsSparta from '../assets/audio/thisissparta.wav';
 import weatherBoy from '../assets/audio/weatherBoy.wav';
 
 import play from '../assets/images/play-button.svg';

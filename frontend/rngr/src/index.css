@@ -48,6 +48,7 @@ h1 {
   font-weight: bold;
   box-sizing: border-box;
   padding: 0 120px !important;
+  cursor: pointer;
 }
 
 .rngr-button > img {

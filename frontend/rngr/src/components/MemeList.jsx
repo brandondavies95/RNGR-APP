@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Sound from 'react-sound';
 
 import deezNuts from '../assets/audio/deezNuts.wav';
@@ -165,4 +166,10 @@ class MemeList extends React.Component {
 
 MemeList.propTypes = propTypes;
 
-export default MemeList;
+function mapStateToProps(state) {
+  return {
+    memes: state.memes,
+  };
+}
+
+export default connect (mapStateToProps)(MemeList);

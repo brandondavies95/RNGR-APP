@@ -1,15 +1,11 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form';
+import SongReducer from './reducer-memes';
 
-import items from './items';
-import logins from './logins';
+// This file combines any reducers we may have.
+// take chunks of data from other reducers and make one
 
-const rootReducer = combineReducers({
-  routing: routerReducer,
-  form: formReducer,
-  items,
-  logins,
+const allReducers = combineReducers({
+  memes: SongReducer,
 });
 
-export default rootReducer;
+export default allReducers;

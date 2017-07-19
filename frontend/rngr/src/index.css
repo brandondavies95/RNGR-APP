@@ -18,66 +18,11 @@ button {
 }
 
 h1 {
-  font-size:8rem;
+  font-size:2rem;
   text-align:center;
   margin-top:10px !important;
   z-index:5;
   width:100%;
-}
-
-.rngr-form {
-  width:60%;
-  height: 60% !important;
-  margin:2% 20% !important;
-  background-color:#ddd;
-  padding-top: 2% !important;
-  position: absolute;
-}
-
-.google {
-  position:absolute;
-  bottom: 3%;
-  left:3%;
-}
-
-.facebook {
-  position: absolute;
-  bottom: 3%;
-  right: 3%;
-}
-
-.facebook a span button{
-  margin:0 !important;
-  padding: 5% 1% !important;
-}
-
-.inputs input {
-  width:80%;
-  height: 80px;
-  margin: 1% 10% !important;
-  border-radius: 80px !important;
-  border:none;
-  outline: none;
-  box-sizing: border-box;
-  padding-left: 25px;
-  font-size: 2rem;
-  color: #9933ff;
-}
-
-.inputs input::placeholder {
-  color: #D5B4F5;
-}
-
-.inputs button {
-  width:80%;
-  height: 80px;
-  margin: 1% 10% !important;
-  border-radius: 80px;
-  border: none;
-  outline: none;
-  background-color: #9933ff;
-  font-size: 3rem;
-  color: #fff;
 }
 
 .dashBoard {
@@ -99,7 +44,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   box-sizing: border-box;
   padding: 0 120px !important;
@@ -131,7 +76,7 @@ h1 {
   padding: 0 !important;
   text-align:center !important;
   margin:2% !important;
-  font-size: 2rem !important;
+  font-size: 1rem !important;
   justify-content: center !important;
 }
 

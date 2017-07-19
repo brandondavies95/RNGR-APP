@@ -1,16 +1,22 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import { createStore } from 'redux';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Root from './containers/Root';
-import { store, history } from './store/configureStore';
+import allReducers from './reducers';
+import routes from './routes';
 import './index.css';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+const memestore = createStore(allReducers);
+
 render(
-  <Root store={store} history={history} />,
+  <Provider store={memestore} >
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
   document.getElementById('root'),
 );

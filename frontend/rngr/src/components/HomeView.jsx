@@ -1,38 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import MemeList from './MemeList';
+import React from 'react';
 
-const propTypes = {
-  items: PropTypes.array,
-};
-
-const defaultProps = {
-  items: [],
-};
-
-class HomeView extends Component {
-  state = {
-    currentItem: this.props.items[0],
-  }
-
+class HomeView extends React.Component {
   render() {
     return (
       <div>
         <h1>RNGR</h1>
-        <MemeList />
+        <a href="http://localhost:3001/login">Login</a>
       </div>
     );
   }
 }
 
-HomeView.propTypes = propTypes;
-HomeView.defaultProps = defaultProps;
-
-function mapStateToProps(state) {
-  return {
-    items: state.items,
-  };
-}
-
-export default connect(mapStateToProps)(HomeView);
+export default HomeView;

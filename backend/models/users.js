@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const passportLocalMongoose = require('passport-local-mongoose')
 
 //validation of users
 const userSchema = new Schema ({
@@ -28,7 +29,7 @@ const userSchema = new Schema ({
   password: {
     type: String,
     minlength: [6, 'Password not long enough'],
-    required: [true, 'A user needs a password']
+    required: [false, 'A user needs a password']
   },
 
   createdOn: {
@@ -62,6 +63,8 @@ const userSchema = new Schema ({
 
   //}
 //})
+
+userSchema.plugin(passportLocalMongoose)
 
 const User = mongoose.model('User', userSchema)
 

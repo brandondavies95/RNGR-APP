@@ -51,7 +51,7 @@ const userSchema = new Schema ({
     token: String,
     name: String,
     email: String
-  }
+  },
 })
 
 //itemSchema.options.toJSON ={

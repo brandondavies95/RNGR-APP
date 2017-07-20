@@ -12,7 +12,8 @@ const nodemailer    = require('nodemailer')
 
 const auth          = require('./routes/auth')
 const User          = require('./models/users')
-const users      = require('./routes/users')
+const users         = require('./routes/users')
+const memes         = require('./routes/memes')
 const passportSetup = require('./config/passport')
 
 passportSetup(passport)
@@ -49,6 +50,7 @@ app.use(function (req, res, next) {
 
 app.use(auth)
 app.use(users)
+app.use(memes)
 
 app.get('/', function (req, res) {
   res.json('HelloWorld')

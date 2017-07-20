@@ -3,6 +3,7 @@ const router = express.Router ()
 const mongoose = require('mongoose')
 const User = require('./../models/users')
 
+const Meme = require('./../models/memes')
 
 //Index
 router.get('/users', function (req,res) {
@@ -14,33 +15,62 @@ router.get('/users', function (req,res) {
 })
 
 //Show
-router.get('/users/:username', function (req,res) {
+router.get('/users/:id', function (req,res) {
   User.findOne({
-    username: req.params.username,
+    username: req.params.id,
     deletedON: null
   }, function (err, user) {
     res.json(user)
   })
 })
 
+function addMemes(req, res, userId) {
+  const memes = new Meme ({
+    title: 'this.props.memes[1].title',
+    url: 'this.props.memes[1].url',
+    id: 'this.props.memes[1].id',
+    userId: userId,
+  })
+  memes.save(function (err, meme) {
+    if (err) {
+      res.json(err)
+    } else {
+      for (var i = 0; i < 4; i++) {
+        const meme = new Meme({
+          title: ' ',
+          url: ' ',
+          id: ' ',
+          userId: userId,
+        })
+        meme.save(function (err, meme) {
+          if (err) {
+            res.json(err)
+          }
+        })
+      }
+      res.redirect('http://localhost:3000/profile')
+    }
+  })
+}
+
 //Create
 router.post('/users', function (req, res) {
   const user = new User({
     name: req.body.name,
+    email: req.body.email,
     username: req.body.username,
     password: req.body.password,
   })
-
+console.log(user);
 user.save(function (err, user) {
   if (err) {
     res.json(err)
   } else {
-    res.json(user)
+    const userId = user._id;
+    addMemes(req, res, userId)
   }
 })
-    res.status(201)
-    res.json(user)
-})
+});
 
 //Update
 router.put('/users/:username', function (req, res) {

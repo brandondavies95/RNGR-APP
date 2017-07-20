@@ -48,7 +48,7 @@ function addMemes(req, res, userId) {
           }
         })
       }
-      res.redirect('http://localhost:3000/profile')
+      res.redirect('http://localhost:3000/profile')   //users/${userId}/memes
     }
   })
 }
@@ -97,5 +97,16 @@ router.delete('/users/:username', function (req, res) {
           res.json(user)
       })
     })
+
+router.get('/users/:id/memes', function (req, res) {
+  Meme.find({userId: req.params.id}, function (err, memes) {
+    if (err) {
+      res.json(err)
+    } else {
+      res.json(memes)
+    }
+  })
+})
+
 
     module.exports = router

@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Sound from 'react-sound';
 
-// const sound0 = require({ this.props.memes[0].url })
-// import sound1 from {this.props.memes[1].url};
-// import sound2 from {this.props.memes[2].url};
-// import sound3 from {this.props.memes[3].url};
-// import sound4 from {this.props.memes[4].url};
-
 import play from '../assets/images/play-button.svg';
 import pause from '../assets/images/pause.svg';
-// import MemeStore from './MemeStore';
+import rngr from '../assets/images/fake-rngrLogo.png';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -39,9 +33,9 @@ class MemeList extends React.Component {
         id: this.props.memes[10].id,
       },
       {
-        title: this.props.memes[2].title,
-        url: this.props.memes[2].url,
-        id: this.props.memes[2].id,
+        title: this.props.memes[13].title,
+        url: this.props.memes[13].url,
+        id: this.props.memes[13].id,
       },
       {
         title: this.props.memes[5].title,
@@ -177,7 +171,7 @@ class MemeList extends React.Component {
 
   render() {
     return (
-      <div className="dashBoard">
+      <div className="rngr-wrapper">
         <Sound
           url={this.state.url}
           playStatus={this.state.status}
@@ -185,6 +179,9 @@ class MemeList extends React.Component {
           onPlaying={this.playAudio}
           onFinishedPlaying={this.stopAudio}
         />
+        <div className="rngr-header">
+          <img src={rngr} />
+        </div>
         <div className="rngr-box">
           <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>
           <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.state.user[1].title}<img src={this.state.icon2} alt="" /></button>

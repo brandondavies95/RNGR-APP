@@ -3,6 +3,7 @@ const router = express.Router ()
 const mongoose = require('mongoose')
 
 const Meme = require('./../models/memes')
+const User = require('./../models/users')
 
 //Index
 router.get('/memes', function (req,res) {
@@ -17,7 +18,7 @@ router.get('/memes', function (req,res) {
 
 // Show
 router.get('/memes/:id', function (req, res) {
-  Meme.findById(this.req.params.id, function (err, memes) {
+  Meme.findById(req.params.id, function (err, memes) {
     if (err) {
       res.json(err)
     } else {

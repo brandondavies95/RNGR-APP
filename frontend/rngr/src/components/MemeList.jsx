@@ -5,7 +5,7 @@ import Sound from 'react-sound';
 
 import play from '../assets/images/play-button.svg';
 import pause from '../assets/images/pause.svg';
-import rngr from '../assets/images/fake-rngrLogo.png';
+import rngrLogo from '../assets/images/fake-rngrLogo.png';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -180,7 +180,7 @@ class MemeList extends React.Component {
           onFinishedPlaying={this.stopAudio}
         />
         <div className="rngr-header">
-          <img src={rngr} />
+          <img src={rngrLogo} />
         </div>
         <div className="rngr-box">
           <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>

@@ -24,6 +24,11 @@ div.rngr-wrapper {
   align-items: center;
 }
 
+
+div.start-page{
+  justify-content: center !important;
+}
+
 div.rngr-header{
   width:80%;
   height:10%;
@@ -35,6 +40,25 @@ div.rngr-header{
 }
 
 div.rngr-header img{width:200px !important;}
+
+img.rngr{
+  width:300px;
+}
+
+a.rngr{
+  width:200px;
+  height:80px;
+  border-radius: 80px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CB2C4;
+  color:#fff;
+  font-size: 3rem;
+  text-decoration: none;
+  font-family: sans-serif;
+  margin-top:100px;
+}
 
 div.rngr-box{
   width: 32%;
@@ -95,3 +119,10 @@ button.rngr-store {
 button.rngr-store img {
   display:none;
 }
+
+button.gear{background: none; border:none; outline: none;}
+
+
+
+
+img.hide{display:none;}

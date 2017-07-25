@@ -1,21 +1,15 @@
-
-{{#if message }}
-    <div class="error">{{ message }}</div>
-{{/if }}
-<form method="POST" action="/login">
-    <legend>Login</legend>
-    <div>
-        <input type="text" name="username" required>
-        <label>username</label>
-    </div>
-    <div>
-        <input type="text" name="email" required>
-        <label>email</label>
-    </div>
-    <div>
-        <input type="password" name="password" required>
-        <label>Password</label>
-    </div>
-    <button type="submit">Login</button>
-    <a href="/signup">Sign up</a>
-</form>
+<div class='rngr-wrapper'>
+  {{#if message }}
+      <div class="error">{{ message }}</div>
+  {{/if }}
+  <form method="POST" action="/login" class="rngr-form" id="login">
+      <h1>Rngr</h1>
+      <a href="/auth/google" class="form-btn">Google</a>
+      <hr />
+          <input type="text" name="username" placeholder="Username" required>
+          <input type="text" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+  </form>
+  <p class="notAMember"> Not A Memeber? <a href="/signup">Sign up</a></p>
+</div>

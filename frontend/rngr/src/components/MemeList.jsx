@@ -6,6 +6,7 @@ import Sound from 'react-sound';
 import play from '../assets/images/play-button.svg';
 import pause from '../assets/images/pause.svg';
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
+import gear from '../assets/images/gear.png';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -21,6 +22,7 @@ class MemeList extends React.Component {
     icon4: play,
     icon5: play,
     sound: 'sound0',
+    editable: false,
     user: [
       {
         title: this.props.memes[12].title,
@@ -169,6 +171,25 @@ class MemeList extends React.Component {
     }
   }
 
+  handleEditDashBoard = () => {
+    let editable = this.state.editable;
+    if (editable === true) {
+      for (var i = 0; i < 5; i++) {
+        const editButton = document.querySelector('#edit');
+        editButton.classList.remove('hide');
+      }
+      editable = false;
+      this.setState({ editable });
+    } else {
+      for (var i = 0; i < 5; i++) {
+        const editButton = document.querySelector('#edit');
+        editButton.classList.add('hide');
+      }
+      editable = true;
+      this.setState({ editable });
+    }
+  }
+
   render() {
     return (
       <div className="rngr-wrapper">
@@ -183,11 +204,12 @@ class MemeList extends React.Component {
           <img src={rngrLogo} />
         </div>
         <div className="rngr-box">
-          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>
-          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.state.user[1].title}<img src={this.state.icon2} alt="" /></button>
-          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.state.user[2].title}<img src={this.state.icon3} alt="" /></button>
-          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.state.user[3].title}<img src={this.state.icon4} alt="" /></button>
-          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.state.user[4].title}<img src={this.state.icon5} alt="" /></button>
+          <button onTouchTap={this.playButton0} className="rngr-button" id="s0"><img id="edit" src={play} className="hide" /> {this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton1} className="rngr-button" id="s1"><img id="edit" src={play} className="hide" /> {this.state.user[1].title}<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button" id="s2"><img id="edit" src={play} className="hide" /> {this.state.user[2].title}<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button" id="s3"><img id="edit" src={play} className="hide" /> {this.state.user[3].title}<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button" id="s4"><img id="edit" src={play} className="hide" /> {this.state.user[4].title}<img src={this.state.icon5} alt="" /></button>
+          <button onTouchTap={this.handleEditDashBoard} className="gear"><img src={gear} /></button>
         </div>
       </div>
     );

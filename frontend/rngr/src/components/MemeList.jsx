@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { router } from 'react-router';
 import Sound from 'react-sound';
 
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
@@ -88,7 +88,7 @@ class MemeList extends React.Component {
   playButton0 = () => {
     if (this.state.editable === false) {
       if (this.state.user0.blank === true) {
-        <Link to="/store" />
+        this.props.router.push('/store');
       } else {
         this.setState({ user0: {
           title: this.props.memes[0].title,
@@ -117,7 +117,7 @@ class MemeList extends React.Component {
   playButton1 = () => {
     if (this.state.editable === false) {
       if (this.state.user1.blank === true) {
-        //TODO route to store
+        this.props.router.push('/store');
       } else {
         this.setState({ user1: {
           title: this.props.memes[0].title,
@@ -146,7 +146,7 @@ class MemeList extends React.Component {
   playButton2 = () => {
     if (this.state.editable === false) {
       if (this.state.user2.blank === true) {
-        //TODO route to store
+        this.props.router.push('/store');
       } else {
         this.setState({ user2: {
           title: this.props.memes[0].title,
@@ -175,7 +175,7 @@ class MemeList extends React.Component {
   playButton3 = () => {
     if (this.state.editable === false) {
       if (this.state.user3.blank === true) {
-        //TODO route to store
+        this.props.router.push('/store');
       } else {
         this.setState({ user3: {
           title: this.props.memes[0].title,
@@ -204,7 +204,7 @@ class MemeList extends React.Component {
   playButton4 = () => {
     if (this.state.editable === false) {
       if (this.state.user4.blank === true) {
-        //TODO route to store
+        this.props.router.push('/store');
       } else {
         this.setState({ user4: {
           title: this.props.memes[0].title,

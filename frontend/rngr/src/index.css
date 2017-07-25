@@ -90,12 +90,13 @@ div.rngr-store-box {
 button.rngr-button {
   width:100% !important;
   height:80px;
+  position: relative;
   border-radius: 60px;
   border: none;
   outline: none;
   background-color: #ddd;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;;
   align-items: center;
   box-sizing: border-box;
   padding: 0 25px;
@@ -106,8 +107,9 @@ button.rngr-button {
 }
 
 button.rngr-button img {
-  width:65px;
-  height:65px;
+  width:35px;
+  height:35px;
+  position: absolute; right: 60px; top: 22px;
 }
 
 button.rngr-store {

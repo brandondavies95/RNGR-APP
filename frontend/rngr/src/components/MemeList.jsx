@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Sound from 'react-sound';
 
-import play from '../assets/images/play-button.svg';
-import pause from '../assets/images/pause.svg';
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
+import blank from '../assets/images/blank.png';
 import edit from '../assets/images/plus.svg';
 import gear from '../assets/images/gear.png';
 
@@ -17,11 +16,11 @@ class MemeList extends React.Component {
   state = {
     status: Sound.status.STOPPED,
     url: '',
-    icon1: play,
-    icon2: play,
-    icon3: play,
-    icon4: play,
-    icon5: play,
+    icon1: blank,
+    icon2: blank,
+    icon3: blank,
+    icon4: blank,
+    icon5: blank,
     sound: 'sound0',
     editable: false,
     user: [
@@ -53,6 +52,10 @@ class MemeList extends React.Component {
     ],
   }
 
+  componentDidMount() {
+    this.handleEditDashBoard();
+  }
+
   sound0 = require('../assets/audio/' + this.state.user[0].url);
   sound1 = require('../assets/audio/' + this.state.user[1].url);
   sound2 = require('../assets/audio/' + this.state.user[2].url);
@@ -64,11 +67,6 @@ class MemeList extends React.Component {
       url: '',
       status: Sound.status.STOPPED,
       sound: 'sound',
-      icon1: play,
-      icon2: play,
-      icon3: play,
-      icon4: play,
-      icon5: play,
     });
     const button1 = document.querySelector('#s0');
     const button2 = document.querySelector('#s1');
@@ -83,103 +81,114 @@ class MemeList extends React.Component {
   }
 
   playButton0 = () => {
-    this.stopAudio();
-    const button = document.querySelector('#s0');
-    if (this.state.sound !== 'sound0') {
-      this.setState({
-        url: this.sound0,
-        status: Sound.status.PLAYING,
-        sound: 'sound0',
-        icon1: pause,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#86253C';
+    if (this.state.editable === false) {
+      if (this.state.icon1 === plus) {
+        //TODO route to store
+      } else {
+        //TODO remove meme from state
+      }
+    } else {
+      this.stopAudio();
+      const button = document.querySelector('#s0');
+      if (this.state.sound !== 'sound0') {
+        this.setState({
+          url: this.sound0,
+          status: Sound.status.PLAYING,
+          sound: 'sound0',
+        });
+        button.style.backgroundColor = '#86253C';
+      }
     }
   }
 
   playButton1 = () => {
-    this.stopAudio();
-    const button = document.querySelector('#s1');
-    if (this.state.sound !== 'sound1') {
-      this.setState({
-        url: this.sound1,
-        status: Sound.status.PLAYING,
-        sound: 'sound1',
-        icon1: play,
-        icon2: pause,
-        icon3: play,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#86253C';
+    if (this.state.editable === false) {
+      console.log('editing');
+    } else {
+      this.stopAudio();
+      const button = document.querySelector('#s1');
+      if (this.state.sound !== 'sound1') {
+        this.setState({
+          url: this.sound1,
+          status: Sound.status.PLAYING,
+          sound: 'sound1',
+        });
+        button.style.backgroundColor = '#86253C';
+      }
     }
   }
 
   playButton2 = () => {
-    this.stopAudio();
-    const button = document.querySelector('#s2');
-    if (this.state.sound !== 'sound2') {
-      this.setState({
-        url: this.sound2,
-        status: Sound.status.PLAYING,
-        sound: 'sound2',
-        icon1: play,
-        icon2: play,
-        icon3: pause,
-        icon4: play,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#86253C';
+    if (this.state.editable === false) {
+      console.log('editing');
+    } else {
+        this.stopAudio();
+        const button = document.querySelector('#s3');
+        if (this.state.sound !== 'sound3') {
+          this.setState({
+            url: this.sound3,
+            status: Sound.status.PLAYING,
+            sound: 'sound3',
+          });
+          button.style.backgroundColor = '#86253C';
+        }
     }
   }
 
   playButton3 = () => {
-    this.stopAudio();
-    const button = document.querySelector('#s3');
-    if (this.state.sound !== 'sound3') {
-      this.setState({
-        url: this.sound3,
-        status: Sound.status.PLAYING,
-        sound: 'sound3',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: pause,
-        icon5: play,
-      });
-      button.style.backgroundColor = '#86253C';
+    if (this.state.editable === false) {
+      console.log('editing');
+    } else {
+      this.stopAudio();
+      const button = document.querySelector('#s2');
+      if (this.state.sound !== 'sound2') {
+        this.setState({
+          url: this.sound2,
+          status: Sound.status.PLAYING,
+          sound: 'sound2',
+        });
+        button.style.backgroundColor = '#86253C';
+      }
     }
   }
 
   playButton4 = () => {
-    this.stopAudio();
-    const button = document.querySelector('#s4');
-    if (this.state.sound !== 'sound4') {
-      this.setState({
-        url: this.sound4,
-        status: Sound.status.PLAYING,
-        sound: 'sound4',
-        icon1: play,
-        icon2: play,
-        icon3: play,
-        icon4: play,
-        icon5: pause,
-      });
-      button.style.backgroundColor = '#86253C';
+    if (this.state.editable === false) {
+      console.log('editing');
+    } else {
+      this.stopAudio();
+      const button = document.querySelector('#s4');
+      if (this.state.sound !== 'sound4') {
+        this.setState({
+          url: this.sound4,
+          status: Sound.status.PLAYING,
+          sound: 'sound4',
+        });
+        button.style.backgroundColor = '#86253C';
+      }
     }
   }
 
   handleEditDashBoard = () => {
-    this.setState({
-      icon1: edit,
-      icon2: edit,
-      icon3: edit,
-      icon4: edit,
-      icon5: edit,
-    });
+    if (this.state.editable === true) {
+      this.setState({
+        icon1: edit,
+        icon2: edit,
+        icon3: edit,
+        icon4: edit,
+        icon5: edit,
+        editable: false,
+      });
+    } else {
+      this.setState({
+        icon1: blank,
+        icon2: blank,
+        icon3: blank,
+        icon4: blank,
+        icon5: blank,
+        editable: true,
+      });
+    }
   }
 
   render() {

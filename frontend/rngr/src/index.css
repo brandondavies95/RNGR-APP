@@ -123,6 +123,7 @@ button.rngr-store img {
 }
 
 button.gear{background: none; border:none; outline: none;}
+button.gear img{width:60px;}
 
 
 

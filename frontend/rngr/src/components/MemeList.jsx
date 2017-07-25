@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import Sound from 'react-sound';
 
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
 import blank from '../assets/images/blank.png';
-import edit from '../assets/images/plus.svg';
+import add from '../assets/images/plus.svg';
+import remove from '../assets/images/delete.svg';
 import gear from '../assets/images/gear.png';
 
 const propTypes = {
@@ -23,44 +25,47 @@ class MemeList extends React.Component {
     icon5: blank,
     sound: 'sound0',
     editable: false,
-    user: [
-      {
-        title: this.props.memes[12].title,
-        url: this.props.memes[12].url,
-        id: this.props.memes[12].id,
-      },
-      {
-        title: this.props.memes[10].title,
-        url: this.props.memes[10].url,
-        id: this.props.memes[10].id,
-      },
-      {
-        title: this.props.memes[13].title,
-        url: this.props.memes[13].url,
-        id: this.props.memes[13].id,
-      },
-      {
-        title: this.props.memes[5].title,
-        url: this.props.memes[5].url,
-        id: this.props.memes[5].id,
-      },
-      {
-        title: this.props.memes[9].title,
-        url: this.props.memes[9].url,
-        id: this.props.memes[9].id,
-      },
-    ],
+    user0: {
+      title: this.props.memes[2].title,
+      url: this.props.memes[2].url,
+      id: this.props.memes[2].id,
+      blank: this.props.memes[2].blank,
+    },
+    user1: {
+      title: this.props.memes[10].title,
+      url: this.props.memes[10].url,
+      id: this.props.memes[10].id,
+      blank: this.props.memes[10].blank,
+    },
+    user2: {
+      title: this.props.memes[14].title,
+      url: this.props.memes[14].url,
+      id: this.props.memes[14].id,
+      blank: this.props.memes[14].blank,
+    },
+    user3: {
+      title: this.props.memes[0].title,
+      url: this.props.memes[0].url,
+      id: this.props.memes[0].id,
+      blank: this.props.memes[0].blank,
+    },
+    user4: {
+      title: this.props.memes[9].title,
+      url: this.props.memes[9].url,
+      id: this.props.memes[9].id,
+      blank: this.props.memes[9].blank,
+    },
   }
 
   componentDidMount() {
     this.handleEditDashBoard();
   }
 
-  sound0 = require('../assets/audio/' + this.state.user[0].url);
-  sound1 = require('../assets/audio/' + this.state.user[1].url);
-  sound2 = require('../assets/audio/' + this.state.user[2].url);
-  sound3 = require('../assets/audio/' + this.state.user[3].url);
-  sound4 = require('../assets/audio/' + this.state.user[4].url);
+  sound0 = require('../assets/audio/' + this.state.user0.url);
+  sound1 = require('../assets/audio/' + this.state.user1.url);
+  sound2 = require('../assets/audio/' + this.state.user2.url);
+  sound3 = require('../assets/audio/' + this.state.user3.url);
+  sound4 = require('../assets/audio/' + this.state.user4.url);
 
   stopAudio = () => {
     this.setState({
@@ -82,46 +87,106 @@ class MemeList extends React.Component {
 
   playButton0 = () => {
     if (this.state.editable === false) {
-      if (this.state.icon1 === plus) {
-        //TODO route to store
+      if (this.state.user0.blank === true) {
+        <Link to="/store" />
       } else {
-        //TODO remove meme from state
+        this.setState({ user0: {
+          title: this.props.memes[0].title,
+          url: this.props.memes[0].url,
+          id: this.props.memes[0].id,
+          blank: this.props.memes[0].blank,
+        }});
+        this.setState({ icon1: add });
       }
     } else {
-      this.stopAudio();
-      const button = document.querySelector('#s0');
-      if (this.state.sound !== 'sound0') {
-        this.setState({
-          url: this.sound0,
-          status: Sound.status.PLAYING,
-          sound: 'sound0',
-        });
-        button.style.backgroundColor = '#86253C';
+      if (this.state.user0.blank === false) {
+        this.stopAudio();
+        const button = document.querySelector('#s0');
+        if (this.state.sound !== 'sound0') {
+          this.setState({
+            url: this.sound0,
+            status: Sound.status.PLAYING,
+            sound: 'sound0',
+          });
+          button.style.backgroundColor = '#86253C';
+        }
       }
     }
   }
 
   playButton1 = () => {
     if (this.state.editable === false) {
-      console.log('editing');
+      if (this.state.user1.blank === true) {
+        //TODO route to store
+      } else {
+        this.setState({ user1: {
+          title: this.props.memes[0].title,
+          url: this.props.memes[0].url,
+          id: this.props.memes[0].id,
+          blank: this.props.memes[0].blank,
+        }});
+        this.setState({ icon2: add });
+      }
     } else {
-      this.stopAudio();
-      const button = document.querySelector('#s1');
-      if (this.state.sound !== 'sound1') {
-        this.setState({
-          url: this.sound1,
-          status: Sound.status.PLAYING,
-          sound: 'sound1',
-        });
-        button.style.backgroundColor = '#86253C';
+      if (this.state.user1.blank === false) {
+        this.stopAudio();
+        const button = document.querySelector('#s1');
+        if (this.state.sound !== 'sound1') {
+          this.setState({
+            url: this.sound1,
+            status: Sound.status.PLAYING,
+            sound: 'sound1',
+          });
+          button.style.backgroundColor = '#86253C';
+        }
       }
     }
   }
 
   playButton2 = () => {
     if (this.state.editable === false) {
-      console.log('editing');
+      if (this.state.user2.blank === true) {
+        //TODO route to store
+      } else {
+        this.setState({ user2: {
+          title: this.props.memes[0].title,
+          url: this.props.memes[0].url,
+          id: this.props.memes[0].id,
+          blank: this.props.memes[0].blank,
+        }});
+        this.setState({ icon3: add });
+      }
     } else {
+      if (this.state.user2.blank === false) {
+        this.stopAudio();
+        const button = document.querySelector('#s2');
+        if (this.state.sound !== 'sound2') {
+          this.setState({
+            url: this.sound2,
+            status: Sound.status.PLAYING,
+            sound: 'sound2',
+          });
+          button.style.backgroundColor = '#86253C';
+        }
+      }
+    }
+  }
+
+  playButton3 = () => {
+    if (this.state.editable === false) {
+      if (this.state.user3.blank === true) {
+        //TODO route to store
+      } else {
+        this.setState({ user3: {
+          title: this.props.memes[0].title,
+          url: this.props.memes[0].url,
+          id: this.props.memes[0].id,
+          blank: this.props.memes[0].blank,
+        }});
+        this.setState({ icon4: add });
+      }
+    } else {
+      if (this.state.user3.blank === false) {
         this.stopAudio();
         const button = document.querySelector('#s3');
         if (this.state.sound !== 'sound3') {
@@ -132,53 +197,67 @@ class MemeList extends React.Component {
           });
           button.style.backgroundColor = '#86253C';
         }
-    }
-  }
-
-  playButton3 = () => {
-    if (this.state.editable === false) {
-      console.log('editing');
-    } else {
-      this.stopAudio();
-      const button = document.querySelector('#s2');
-      if (this.state.sound !== 'sound2') {
-        this.setState({
-          url: this.sound2,
-          status: Sound.status.PLAYING,
-          sound: 'sound2',
-        });
-        button.style.backgroundColor = '#86253C';
       }
     }
   }
 
   playButton4 = () => {
     if (this.state.editable === false) {
-      console.log('editing');
+      if (this.state.user4.blank === true) {
+        //TODO route to store
+      } else {
+        this.setState({ user4: {
+          title: this.props.memes[0].title,
+          url: this.props.memes[0].url,
+          id: this.props.memes[0].id,
+          blank: this.props.memes[0].blank,
+        }});
+        this.setState({ icon5: add });
+      }
     } else {
-      this.stopAudio();
-      const button = document.querySelector('#s4');
-      if (this.state.sound !== 'sound4') {
-        this.setState({
-          url: this.sound4,
-          status: Sound.status.PLAYING,
-          sound: 'sound4',
-        });
-        button.style.backgroundColor = '#86253C';
+      if (this.state.user4.blank === false) {
+        this.stopAudio();
+        const button = document.querySelector('#s4');
+        if (this.state.sound !== 'sound4') {
+          this.setState({
+            url: this.sound4,
+            status: Sound.status.PLAYING,
+            sound: 'sound4',
+          });
+          button.style.backgroundColor = '#86253C';
+        }
       }
     }
   }
 
   handleEditDashBoard = () => {
     if (this.state.editable === true) {
-      this.setState({
-        icon1: edit,
-        icon2: edit,
-        icon3: edit,
-        icon4: edit,
-        icon5: edit,
-        editable: false,
-      });
+      if (this.state.user0.blank === false) {
+        this.setState({ icon1: remove });
+      } else {
+        this.setState({ icon1: add});
+      }
+      if (this.state.user1.blank === false) {
+        this.setState({ icon2: remove });
+      } else {
+        this.setState({ icon2: add});
+      }
+      if (this.state.user2.blank === false) {
+        this.setState({ icon3: remove });
+      } else {
+        this.setState({ icon3: add});
+      }
+      if (this.state.user3.blank === false) {
+        this.setState({ icon4: remove });
+      } else {
+        this.setState({ icon4: add});
+      }
+      if (this.state.user4.blank === false) {
+        this.setState({ icon5: remove });
+      } else {
+        this.setState({ icon5: add});
+      }
+      this.setState({ editable: false });
     } else {
       this.setState({
         icon1: blank,
@@ -205,11 +284,11 @@ class MemeList extends React.Component {
           <img src={rngrLogo} />
         </div>
         <div className="rngr-box">
-          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user[0].title}<img src={this.state.icon1} alt="" /></button>
-          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.state.user[1].title}<img src={this.state.icon2} alt="" /></button>
-          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.state.user[2].title}<img src={this.state.icon3} alt="" /></button>
-          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.state.user[3].title}<img src={this.state.icon4} alt="" /></button>
-          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.state.user[4].title}<img src={this.state.icon5} alt="" /></button>
+          <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user0.title}<img src={this.state.icon1} alt="" /></button>
+          <button onTouchTap={this.playButton1} className="rngr-button" id="s1">{this.state.user1.title}<img src={this.state.icon2} alt="" /></button>
+          <button onTouchTap={this.playButton2} className="rngr-button" id="s2">{this.state.user2.title}<img src={this.state.icon3} alt="" /></button>
+          <button onTouchTap={this.playButton3} className="rngr-button" id="s3">{this.state.user3.title}<img src={this.state.icon4} alt="" /></button>
+          <button onTouchTap={this.playButton4} className="rngr-button" id="s4">{this.state.user4.title}<img src={this.state.icon5} alt="" /></button>
           <button onTouchTap={this.handleEditDashBoard} className="gear"><img src={gear} /></button>
         </div>
       </div>

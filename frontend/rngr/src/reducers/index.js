@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
-import SongReducer from './reducer-memes';
+import { routerReducer } from 'react-router-redux';
 
-// This file combines any reducers we may have.
-// take chunks of data from other reducers and make one
+import memes from './reducer-memes';
+import users from './reducer-users';
 
-const allReducers = combineReducers({
-  memes: SongReducer,
+const rootReducer = combineReducers({
+  routing: routerReducer,
+  memes,
+  users,
 });
 
-export default allReducers;
+export default rootReducer;

@@ -104,6 +104,6 @@ export default function () {
       id: 'm14',
       v: 14,
       blank: false,
-    }
+    },
   ];
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { router } from 'react-router';
 import Sound from 'react-sound';
+import { MEME_ADD_REQ } from '../actions';
 
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
 import blank from '../assets/images/blank.png';
@@ -26,34 +27,34 @@ class MemeList extends React.Component {
     sound: 'sound0',
     editable: false,
     user0: {
-      title: this.props.memes[2].title,
-      url: this.props.memes[2].url,
-      id: this.props.memes[2].id,
-      blank: this.props.memes[2].blank,
+      title: this.props.memes[this.props.users[0].v].title,
+      url: this.props.memes[this.props.users[0].v].url,
+      id: this.props.memes[this.props.users[0].v].id,
+      blank: this.props.memes[this.props.users[0].v].blank,
     },
     user1: {
-      title: this.props.memes[10].title,
-      url: this.props.memes[10].url,
-      id: this.props.memes[10].id,
-      blank: this.props.memes[10].blank,
+      title: this.props.memes[this.props.users[1].v].title,
+      url: this.props.memes[this.props.users[1].v].url,
+      id: this.props.memes[this.props.users[1].v].id,
+      blank: this.props.memes[this.props.users[1].v].blank,
     },
     user2: {
-      title: this.props.memes[14].title,
-      url: this.props.memes[14].url,
-      id: this.props.memes[14].id,
-      blank: this.props.memes[14].blank,
+      title: this.props.memes[this.props.users[2].v].title,
+      url: this.props.memes[this.props.users[2].v].url,
+      id: this.props.memes[this.props.users[2].v].id,
+      blank: this.props.memes[this.props.users[2].v].blank,
     },
     user3: {
-      title: this.props.memes[0].title,
-      url: this.props.memes[0].url,
-      id: this.props.memes[0].id,
-      blank: this.props.memes[0].blank,
+      title: this.props.memes[this.props.users[3].v].title,
+      url: this.props.memes[this.props.users[3].v].url,
+      id: this.props.memes[this.props.users[3].v].id,
+      blank: this.props.memes[this.props.users[3].v].blank,
     },
     user4: {
-      title: this.props.memes[9].title,
-      url: this.props.memes[9].url,
-      id: this.props.memes[9].id,
-      blank: this.props.memes[9].blank,
+      title: this.props.memes[this.props.users[4].v].title,
+      url: this.props.memes[this.props.users[4].v].url,
+      id: this.props.memes[this.props.users[4].v].id,
+      blank: this.props.memes[this.props.users[4].v].blank,
     },
   }
 
@@ -88,8 +89,18 @@ class MemeList extends React.Component {
   playButton0 = () => {
     if (this.state.editable === false) {
       if (this.state.user0.blank === true) {
-        this.props.router.push('/store');
+        this.props.router.push('/store/0');
       } else {
+        this.props.dispatch({
+          type: MEME_ADD_REQ,
+          meme: {
+            v: "0",
+            id: "0",
+          },
+          index: {
+            id: "0",
+          },
+        });
         this.setState({ user0: {
           title: this.props.memes[0].title,
           url: this.props.memes[0].url,
@@ -117,8 +128,18 @@ class MemeList extends React.Component {
   playButton1 = () => {
     if (this.state.editable === false) {
       if (this.state.user1.blank === true) {
-        this.props.router.push('/store');
+        this.props.router.push('/store/1');
       } else {
+        this.props.dispatch({
+          type: MEME_ADD_REQ,
+          meme: {
+            v: "0",
+            id: "1",
+          },
+          index: {
+            id: "1",
+          },
+        });
         this.setState({ user1: {
           title: this.props.memes[0].title,
           url: this.props.memes[0].url,
@@ -146,8 +167,18 @@ class MemeList extends React.Component {
   playButton2 = () => {
     if (this.state.editable === false) {
       if (this.state.user2.blank === true) {
-        this.props.router.push('/store');
+        this.props.router.push('/store/2');
       } else {
+        this.props.dispatch({
+          type: MEME_ADD_REQ,
+          meme: {
+            v: "0",
+            id: "2",
+          },
+          index: {
+            id: "2",
+          },
+        });
         this.setState({ user2: {
           title: this.props.memes[0].title,
           url: this.props.memes[0].url,
@@ -175,8 +206,18 @@ class MemeList extends React.Component {
   playButton3 = () => {
     if (this.state.editable === false) {
       if (this.state.user3.blank === true) {
-        this.props.router.push('/store');
+        this.props.router.push('/store/3');
       } else {
+        this.props.dispatch({
+          type: MEME_ADD_REQ,
+          meme: {
+            v: "0",
+            id: "3",
+          },
+          index: {
+            id: "3",
+          },
+        });
         this.setState({ user3: {
           title: this.props.memes[0].title,
           url: this.props.memes[0].url,
@@ -204,8 +245,18 @@ class MemeList extends React.Component {
   playButton4 = () => {
     if (this.state.editable === false) {
       if (this.state.user4.blank === true) {
-        this.props.router.push('/store');
+        this.props.router.push('/store/4');
       } else {
+        this.props.dispatch({
+          type: MEME_ADD_REQ,
+          meme: {
+            v: "0",
+            id: "4",
+          },
+          index: {
+            id: "4",
+          },
+        });
         this.setState({ user4: {
           title: this.props.memes[0].title,
           url: this.props.memes[0].url,
@@ -301,6 +352,7 @@ MemeList.propTypes = propTypes;
 function mapStateToProps(state) {
   return {
     memes: state.memes,
+    users: state.users,
   };
 }
 

@@ -1,36 +1,50 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+// import { router } from 'react-router';
 import Sound from 'react-sound';
+import { MEME_ADD_REQ } from '../actions';
 
 import play from '../assets/images/play-button.svg';
 import pause from '../assets/images/pause.svg';
+import add from '../assets/images/plus.svg';
 import rngrLogo from '../assets/images/fake-rngrLogo.png';
+
+const propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  memes: PropTypes.array.isRequired,
+};
 
 class MemeStore extends React.Component {
   state = {
     icon: play,
+    icon1: add,
     prevButton: null,
     url: '',
     status: Sound.status.STOPPED,
   }
 
   buttonHandler = (e) => {
-    const activeButtonId = e.target.id;
-    const activeButton = document.querySelector(`#${activeButtonId}`);
-    if (activeButton.classList[1] === 'rngr-store') {
-      if (this.state.prevButton) {
-        this.state.prevButton.classList.add('rngr-store');
-      }
-      activeButton.classList.remove('rngr-store');
-      this.setState({ prevButton: activeButton });
+    if (e.target.id === 'meme') {
+      console.log('meme');
     } else {
-      if (this.state.status === Sound.status.STOPPED) {
-        const meme = e.target.name;
-        const url = this.props.memes[meme].url;
-        const audio = require('../assets/audio/' + url);
-        this.setState({ url: audio, status: Sound.status.PLAYING, icon: pause });
+      const activeButtonId = e.target.id;
+      const activeButton = document.querySelector(`#${activeButtonId}`);
+      if (activeButton.classList[1] === 'rngr-store') {
+        if (this.state.prevButton) {
+          this.state.prevButton.classList.add('rngr-store');
+        }
+        activeButton.classList.remove('rngr-store');
+        this.setState({ prevButton: activeButton });
       } else {
-        this.stopAudio();
+        if (this.state.status === Sound.status.STOPPED) {
+          const meme = e.target.name;
+          const url = this.props.memes[meme].url;
+          const audio = require('../assets/audio/' + url);
+          this.setState({ url: audio, status: Sound.status.PLAYING, icon: pause });
+        } else {
+          this.stopAudio();
+        }
       }
     }
   }
@@ -40,30 +54,38 @@ class MemeStore extends React.Component {
       url: '',
       status: Sound.status.STOPPED,
       icon: play,
-    })
+    });
   }
 
-  getMemes = () => {
-    this.props.memes.map((meme) => {
-      return (
-        <button onTouchTap={this.buttonHandler} name={meme.v} className="rngr-button rngr-store" id={meme.id}>{meme.title}<img src={this.state.icon} /></button>
-      );
-    })
+  addMeme = (e) => {
+    const version = e.target.name;
+    this.props.dispatch({
+      type: MEME_ADD_REQ,
+      meme: {
+        v: version,
+        id: this.props.params.indexId,
+      },
+      index: {
+        id: this.props.params.indexId,
+      },
+    });
+    this.props.router.push('/home');
   }
 
   render() {
-    const rngrStore = document.querySelector('.rngr-store-box');
     return (
       <div className="rngr-wrapper">
         <div className="rngr-header">
-          <img src={rngrLogo} />
+          <img alt="logo" src={rngrLogo} />
         </div>
         <div className="rngr-store-box">
           {
             this.props.memes.map((meme) => {
-              return (
-                <button onTouchTap={this.buttonHandler} name={meme.v} className="rngr-button rngr-store" id={meme.id}>{meme.title}<img src={this.state.icon} /></button>
-              );
+              if (meme.blank === false) {
+                return (
+                  <button onTouchTap={this.buttonHandler} name={meme.v} className="rngr-button rngr-store" id={meme.id}><button onTouchTap={this.addMeme} ><img name={meme.v} src={this.state.icon1} id="meme" /></button>{meme.title}<img src={this.state.icon} /></button>
+                );
+              }
             })
           }
         </div>
@@ -79,9 +101,12 @@ class MemeStore extends React.Component {
   }
 }
 
+MemeStore.propTypes = propTypes;
+
 function mapStateToProps(state) {
   return {
     memes: state.memes,
+    user: state.userMemes,
   };
 }
 

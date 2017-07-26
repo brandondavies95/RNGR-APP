@@ -106,10 +106,23 @@ button.rngr-button {
   margin: 15px 0;
 }
 
-button.rngr-button img {
+button.rngr-button > img {
   width:35px;
   height:35px;
   position: absolute; right: 60px; top: 22px;
+}
+
+button.rngr-button > button {
+  background: none;
+  border: none;
+  outline: none;
+  position: absolute; z-index: 200; top:22px; left: 60px;
+
+}
+
+button.rngr-button > button > img {
+  width:35px;
+  height:35px;
 }
 
 button.rngr-store {
@@ -120,6 +133,10 @@ button.rngr-store {
 
 button.rngr-store img {
   display:none;
+}
+
+button.rngr-store button {
+  display: none;
 }
 
 button.gear{background: none; border:none; outline: none;}

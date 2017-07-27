@@ -105,5 +105,17 @@ export default function () {
       v: 14,
       blank: false,
     },
+      title: 'Gayyyy',
+      url: 'gayyyy.wav',
+      id: 'm15',
+      v: 15,
+      blank: false,
+    },
+      title: 'You Are A Loser',
+      url: 'youarealoser.wav',
+      id: 'm16',
+      v: 16,
+      blank: false,
+    },
   ];
 }

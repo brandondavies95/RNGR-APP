@@ -18,6 +18,11 @@ form {
   background-color: #000 !important;
 }
 
+h1 {
+  color: white;
+  font-size: 42px;
+}
+
 div.rngr-wrapper {
   background-image: url('./assets/images/background.jpg');
   background-repeat: no-repeat;

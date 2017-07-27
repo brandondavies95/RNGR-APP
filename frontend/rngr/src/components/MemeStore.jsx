@@ -36,6 +36,7 @@ class MemeStore extends React.Component {
         }
         activeButton.classList.remove('rngr-store');
         this.setState({ prevButton: activeButton });
+        this.stopAudio();
       } else {
         if (this.state.status === Sound.status.STOPPED) {
           const meme = e.target.name;
@@ -78,12 +79,13 @@ class MemeStore extends React.Component {
         <div className="rngr-header">
           <img alt="logo" src={rngrLogo} />
         </div>
+        <h1>Meme Store</h1>
         <div className="rngr-store-box">
           {
             this.props.memes.map((meme) => {
               if (meme.blank === false) {
                 return (
-                  <button onTouchTap={this.buttonHandler} name={meme.v} className="rngr-button rngr-store" id={meme.id}><button onTouchTap={this.addMeme} ><img name={meme.v} src={this.state.icon1} id="meme" /></button>{meme.title}<img src={this.state.icon} /></button>
+                  <button onTouchTap={this.buttonHandler} name={meme.v} className="rngr-button rngr-store" id={meme.id}><button onTouchTap={this.addMeme} ><img name={meme.v} src={this.state.icon1} id="meme" /></button>{meme.title}<img src={this.state.icon} id={meme.id} name={meme.v} /></button>
                 );
               }
             })

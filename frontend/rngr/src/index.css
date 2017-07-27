@@ -1,3 +1,13 @@
+/* Colors */
+/*
+
+the delete button color       = #D34949
+the add button color          = #1E98A6
+
+rngr-button background color  = #ECECEC
+
+*/
+
 * { margin: 0; padding: 0;}
 
 body {
@@ -35,7 +45,7 @@ div.rngr-header{
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 3px solid pink;
+  border-bottom: 3px solid #FB6335;
   margin-bottom: 3%;
 }
 
@@ -64,7 +74,7 @@ div.rngr-box{
   width: 32%;
   height:75%;
   background-color: #000;
-  border: 3px solid #fff;
+  border: 3px solid #CA1064;
   border-radius: 10px;
   box-sizing: border-box;
   display: flex;
@@ -72,12 +82,13 @@ div.rngr-box{
   justify-content: space-around;
   align-items: center;
   padding:15px 20px;
+  margin-bottom: 30px;
 }
 
 div.rngr-store-box {
   width:1000px;
   background-color: #000;
-  border: 3px solid #fff;
+  border: 3px solid #CA1064;
   border-radius: 10px;
   display: flex;
   justify-content: flex-start;
@@ -94,29 +105,29 @@ button.rngr-button {
   border-radius: 60px;
   border: none;
   outline: none;
-  background-color: #ddd;
+  background-color: #ECECEC;
   display: flex;
   justify-content: center;;
   align-items: center;
   box-sizing: border-box;
   padding: 0 25px;
-  font-size:1.25rem;
+  font-size:2rem;
   font-weight: bold;
-  color:#000;
+  color:#777;
   margin: 15px 0;
 }
 
 button.rngr-button > img {
   width:35px;
   height:35px;
-  position: absolute; right: 60px; top: 22px;
+  position: absolute; right: 30px; top: 22px;
 }
 
 button.rngr-button > button {
   background: none;
   border: none;
   outline: none;
-  position: absolute; z-index: 200; top:22px; left: 60px;
+  position: absolute; z-index: 200; top:22px; left: 30px;
 
 }
 
@@ -128,7 +139,8 @@ button.rngr-button > button > img {
 button.rngr-store {
   width:200px !important;
   justify-content: center;
-  margin: 15px 25px !important;
+  margin: 15px 15px !important;
+  font-size: 1.5rem !important;
 }
 
 button.rngr-store img {

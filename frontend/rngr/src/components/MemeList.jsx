@@ -79,11 +79,16 @@ class MemeList extends React.Component {
     const button3 = document.querySelector('#s2');
     const button4 = document.querySelector('#s3');
     const button5 = document.querySelector('#s4');
-    button1.style.backgroundColor = '#ddd';
-    button2.style.backgroundColor = '#ddd';
-    button3.style.backgroundColor = '#ddd';
-    button4.style.backgroundColor = '#ddd';
-    button5.style.backgroundColor = '#ddd';
+    button1.style.backgroundColor = '#ECECEC';
+    button2.style.backgroundColor = '#ECECEC';
+    button3.style.backgroundColor = '#ECECEC';
+    button4.style.backgroundColor = '#ECECEC';
+    button5.style.backgroundColor = '#ECECEC';
+    button1.style.color = '#777';
+    button2.style.color = '#777';
+    button3.style.color = '#777';
+    button4.style.color = '#777';
+    button5.style.color = '#777';
   }
 
   playButton0 = () => {
@@ -119,7 +124,8 @@ class MemeList extends React.Component {
             status: Sound.status.PLAYING,
             sound: 'sound0',
           });
-          button.style.backgroundColor = '#86253C';
+          button.style.backgroundColor = '#C1026B';
+          button.style.color = '#fff';
         }
       }
     }
@@ -158,7 +164,8 @@ class MemeList extends React.Component {
             status: Sound.status.PLAYING,
             sound: 'sound1',
           });
-          button.style.backgroundColor = '#86253C';
+          button.style.backgroundColor = '#C1026B';
+          button.style.color = '#fff';
         }
       }
     }
@@ -197,7 +204,8 @@ class MemeList extends React.Component {
             status: Sound.status.PLAYING,
             sound: 'sound2',
           });
-          button.style.backgroundColor = '#86253C';
+          button.style.backgroundColor = '#C1026B';
+          button.style.color = '#fff';
         }
       }
     }
@@ -236,7 +244,8 @@ class MemeList extends React.Component {
             status: Sound.status.PLAYING,
             sound: 'sound3',
           });
-          button.style.backgroundColor = '#86253C';
+          button.style.backgroundColor = '#C1026B';
+          button.style.color = '#fff';
         }
       }
     }
@@ -275,7 +284,8 @@ class MemeList extends React.Component {
             status: Sound.status.PLAYING,
             sound: 'sound4',
           });
-          button.style.backgroundColor = '#86253C';
+          button.style.backgroundColor = '#C1026B';
+          button.style.color = '#fff';
         }
       }
     }

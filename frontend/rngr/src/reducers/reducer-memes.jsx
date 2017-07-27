@@ -43,7 +43,7 @@ export default function () {
       blank: false,
     },
     {
-      title: 'Hoodrat Stuff With My Friends',
+      title: 'Hoodrat Stuff',
       url: 'hoodRatStuff.wav',
       id: 'm6',
       v: 6,

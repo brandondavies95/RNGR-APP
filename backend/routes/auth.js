@@ -17,7 +17,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
 
 router.get('/logout', function (req, res) {
   req.logout()
-  res.redirect('/login')
+  res.redirect('http://localhost:3000');
 })
 
 router.get('/login', function (req, res) {

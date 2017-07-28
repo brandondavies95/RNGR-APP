@@ -5,11 +5,12 @@ import { router } from 'react-router';
 import Sound from 'react-sound';
 import { MEME_ADD_REQ } from '../actions';
 
-import rngrLogo from '../assets/images/fake-rngrLogo.png';
+import rngrLogo from '../assets/images/logo3.png';
 import blank from '../assets/images/blank.png';
-import add from '../assets/images/plus.svg';
-import remove from '../assets/images/delete.svg';
+import add from '../assets/images/plus.png';
+import remove from '../assets/images/delete.png';
 import gear from '../assets/images/gear.png';
+import logout from '../assets/images/logout.png';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -343,6 +344,7 @@ class MemeList extends React.Component {
         />
         <div className="rngr-header">
           <img src={rngrLogo} />
+          <a href="http://localhost:3001/logout" class=""><img src={logout} /></a>
         </div>
         <div className="rngr-box">
           <button onTouchTap={this.playButton0} className="rngr-button" id="s0">{this.state.user0.title}<img src={this.state.icon1} alt="" /></button>

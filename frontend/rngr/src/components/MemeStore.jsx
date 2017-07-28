@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import Sound from 'react-sound';
 import { MEME_ADD_REQ } from '../actions';
 
-import play from '../assets/images/play-button.svg';
-import pause from '../assets/images/pause.svg';
-import add from '../assets/images/plus.svg';
-import rngrLogo from '../assets/images/fake-rngrLogo.png';
+import play from '../assets/images/play-button.png';
+import pause from '../assets/images/pause.png';
+import add from '../assets/images/plus.png';
+import rngrLogo from '../assets/images/logo3.png';
+import logout from '../assets/images/logout.png';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -78,6 +79,7 @@ class MemeStore extends React.Component {
       <div className="rngr-wrapper">
         <div className="rngr-header">
           <img alt="logo" src={rngrLogo} />
+          <a href="http://localhost:3001/logout" class=""><img src={logout} /></a>
         </div>
         <h1>Meme Store</h1>
         <div className="rngr-store-box">
